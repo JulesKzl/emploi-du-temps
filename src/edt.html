@@ -4,20 +4,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+    <link rel="stylesheet" type="text/css" href="semantic/out/semantic.css">
     <script
       src="https://code.jquery.com/jquery-3.2.1.js"
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
       crossorigin="anonymous">
     </script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <script src="semantic/out/semantic.js"></script>
 
   <title>Emploi du temps</title>
 
 </head>
 
 <body>
-  Coucou
-  <a href="" id="a"><button>Download ics</button></a>
+  <div class="pusher">
+    <div class="ui top attached sticky inverted menu">
+      <!-- <div class="launch icon item" id="sidebarIcon">
+        <i class="sidebar icon"></i>
+      </div> -->
+    </div>
+
+    <div class="ui container">
+      <div id="coursesList" class="ui list">
+      </div>
+      <button class=" ui button" id="generateIcs">Generate ics</button>
+      <a href="" id="a"><button class=" ui button" >Download ics</button></a>
+    </div>
+  </div>
 
   <script src="edt.js"></script>
   </body>
