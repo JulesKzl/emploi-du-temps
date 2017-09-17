@@ -82,14 +82,18 @@ c8.addSchedule(s15)
 //#############################################################################
 // DISPLAY COURSES
 
-for (i = 0; i < all_courses.length; i++) {
-  var line = "<div class=\"item\">"
-  line += "<div class=\"ui checkbox\">"
-  line += "<input type=\"checkbox\" id=\"" + i + "\">"
-  line += "<label>" + all_courses[i].name + "</label>"
-  line += "</div>"
-  line += "</div>"
-  $(line).appendTo($("#coursesList"));
+function displayCoursesList() {
+  $("#coursesList").empty()
+  for (i = 0; i < all_courses.length; i++) {
+    var line = "<div class=\"item\">"
+    line += "<div id=\"checkbox_" + i +"\" class=\"ui checkbox\">"
+    // line += "<input type=\"checkbox\" id=\"" + i + "\" disabled=\"disabled\">"
+    line += "<input type=\"checkbox\" id=\"" + i + "\">"
+    line += "<label>" + all_courses[i].name + "</label>"
+    line += "</div>"
+    line += "</div>"
+    $(line).appendTo($("#coursesList"));
+  }
 }
 
 //#############################################################################
@@ -107,49 +111,109 @@ function notOverlap(scheduleA, scheduleB) {
   }
 }
 
-// Create an day-dict filled with the (course, schedule)
-var dayDict = {}
-var day = ""
-for (k = 0; k < all_courses.length; k++) {
-    for (i = 0; i < all_courses[k].scheduleList.length; i++) {
-      day = all_courses[k].scheduleList[i].beginTime.toISOString().slice(0,10)
-      if (dayDict[day] == undefined) {
-        dayDict[day] = [[all_courses[k], i]]
-      }
-      else {
-        dayDict[day].push([all_courses[k], i])
-      }
-    }
+function addToDict(dict, key, value) {
+  if (dict[key] == undefined) {
+    dict[key] = [value]
+  }
+  else {
+    dict[key].push(value)
+  }
 }
 
-var overlap = []
+// Create an day-dict filled with the (course, schedule)
+function createDayDict(all_courses) {
+  var dayDict = {}
+  var day = ""
+  for (k = 0; k < all_courses.length; k++) {
+      for (i = 0; i < all_courses[k].scheduleList.length; i++) {
+        day = all_courses[k].scheduleList[i].beginTime.toISOString().slice(0,10)
+        addToDict(dayDict, day, [all_courses[k], i])
+      }
+  }
+  return dayDict
+}
 
-var days = Object.keys(dayDict)
-var schedules = []
-var schedulesRest = []
-for (k = 0; k < days.length; k++) {
-  schedules = dayDict[days[k]]
-  for (i = 0; i < schedules.length; i++) {
-    schedulesRest = schedules.slice(i+1)
-    for (j = 0; j < schedulesRest.length; j++) {
-      scheduleA = schedules[i][0].scheduleList[schedules[i][1]]
-      scheduleB = schedulesRest[j][0].scheduleList[schedulesRest[j][1]]
-      if (!notOverlap(scheduleA, scheduleB))
-      {
-        // console.log("Overlapping!")
-        overlap.push([schedules[i][0], schedulesRest[j][0]])
+function createOverlapDict(dayDict) {
+  var overlap = []
+  var overlapDict = {}
+
+  var days = Object.keys(dayDict)
+  var schedules = []
+  var schedulesRest = []
+  for (k = 0; k < days.length; k++) {
+    schedules = dayDict[days[k]]
+    for (i = 0; i < schedules.length; i++) {
+      schedulesRest = schedules.slice(i+1)
+      for (j = 0; j < schedulesRest.length; j++) {
+        courseA = schedules[i][0]
+        scheduleA = courseA.scheduleList[schedules[i][1]]
+        courseB = schedulesRest[j][0]
+        scheduleB = courseB.scheduleList[schedulesRest[j][1]]
+        if (!notOverlap(scheduleA, scheduleB))
+        {
+          console.log("Overlapping!")
+          overlap.push([courseA, courseB])
+          addToDict(overlapDict, courseA.name, courseB)
+          addToDict(overlapDict, courseB.name, courseA)
+        }
       }
     }
   }
+  return overlapDict
 }
-console.log(overlap)
 
-$('.ui .checkbox')
-  .checkbox({
-    onChecked: function() {
-      console.log(all_courses[this.id])
-    }
-  })
+var dayDict = createDayDict(all_courses)
+var overlapDict = createOverlapDict(dayDict)
+var selectCourses = []
+var forbiddenCourses = []
+
+function interactCheckbox() {
+  $('.ui .checkbox')
+    .checkbox({
+      onChecked: function() {
+        selectCourses.push(all_courses[this.id])
+      }
+      ,
+      onUnchecked: function() {
+        var index = selectCourses.indexOf(all_courses[this.id]);
+        if (index > -1) {
+            selectCourses.splice(index, 1);
+        }
+      }
+      ,
+      onChange: function() {
+        for (i=0; i<forbiddenCourses.length; i++) {
+          var index = all_courses.indexOf(forbiddenCourses[i])
+          $("#checkbox_" + index).empty()
+          var line = "<input type=\"checkbox\" id=\"" + index + "\">"
+          line += "<label>" + forbiddenCourses[i].name + "</label>"
+          line += "</div>"
+          $(line).appendTo($("#checkbox_" + index));
+        }
+        forbiddenCourses = []
+        for (i=0; i<selectCourses.length; i++) {
+          if (overlapDict[selectCourses[i].name] != undefined) {
+            overlapCourses = overlapDict[selectCourses[i].name]
+            for (k=0; k<overlapCourses.length; k++) {
+              console.log()
+              forbiddenCourses.push(overlapCourses[k])
+              $("#checkbox_" + all_courses.indexOf(overlapCourses[k])).empty()
+              var line = "<input type=\"checkbox\" id=\"" + i + "\" disabled=\"disabled\">"
+              line += "<label>" + overlapCourses[k].name + "</label>"
+              line += "</div>"
+              $(line).appendTo($("#checkbox_" + all_courses.indexOf(overlapCourses[k])));
+            }
+          }
+        }
+        console.log("forbidden courses:", forbiddenCourses)
+        interactCheckbox()
+      }
+    })
+}
+
+displayCoursesList()
+interactCheckbox()
+
 
 //#############################################################################
 // Export to ics file
@@ -185,11 +249,9 @@ function dateToString(date) {
 function courseToIcs(course) {
   var courseExport = ""
   for (i = 0; i < course.scheduleList.length; i++) {
-    console.log("schedule", i)
     var schedule = course.scheduleList[i]
     var scheduleExport = "\nBEGIN:VEVENT\n"
     scheduleExport += "SUMMARY:[MVA] " + course.name + "\n"
-    console.log(dateToString(schedule.beginTime))
     scheduleExport += "UID:" + course.name + schedule.beginTime + "\n"
     scheduleExport += "DTSTART;TZID=Europe/Paris:" + dateToString(schedule.beginTime) + "\n"
     scheduleExport += "DTEND;TZID=Europe/Paris:" + dateToString(schedule.endTime) + "\n"
@@ -205,8 +267,6 @@ function courseToIcs(course) {
 function download(courses, name, type) {
   var CalendarToDownload = initCalendarExport
   for (k = 0; k < courses.length; k++) {
-    console.log(k)
-    console.log(courses[k])
     CalendarToDownload += courseToIcs(courses[k])
   }
   var a = document.getElementById("a");
@@ -217,5 +277,6 @@ function download(courses, name, type) {
 
 $("#generateIcs")
   .on('click', function (){
-    download(all_courses, 'myfilename3.ics', 'text/plain')
+    console.log("Ics generating...")
+    download(selectCourses, 'myfilename3.ics', 'text/plain')
 })
