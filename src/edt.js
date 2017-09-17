@@ -243,7 +243,9 @@ END:STANDARD\n\
 END:VTIMEZONE\n"
 
 function dateToString(date) {
-  return date.toISOString().replace(/-/g,"").replace(/:/g,"").slice(0,15)
+  var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+  var localISOTime = (new Date(date - tzoffset)).toISOString().slice(0,-1);
+  return localISOTime.replace(/-/g,"").replace(/:/g,"").slice(0,15)
 }
 
 function courseToIcs(course) {
@@ -263,7 +265,6 @@ function courseToIcs(course) {
   return courseExport
 }
 
-
 function download(courses, name, type) {
   var CalendarToDownload = initCalendarExport
   for (k = 0; k < courses.length; k++) {
@@ -275,8 +276,9 @@ function download(courses, name, type) {
   a.download = name;
 }
 
+
 $("#generateIcs")
   .on('click', function (){
     console.log("Ics generating...")
-    download(selectCourses, 'myfilename3.ics', 'text/plain')
+    download(selectCourses, 'myfilenametest.ics', 'text/plain')
 })
