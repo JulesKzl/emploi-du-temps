@@ -57,7 +57,7 @@ var s5 = new Schedule(new Date("2017-10-03T12:45:00"), new Date("2017-10-03T15:4
 c7.addSchedule(s5)
 var s6 = new Schedule(new Date("2017-10-03T16:15:00"), new Date("2017-10-03T19:15:00"), "ENS Ulm Immeuble Rataud Amphi Galois")
 c5.addSchedule(s6)
-var s7 = new Schedule(new Date("2017-10-03T17:00:00"), new Date("2017-10-03T18:00:00"), "salle C103")//TODO 16-18h
+var s7 = new Schedule(new Date("2017-10-03T16:00:00"), new Date("2017-10-03T18:00:00"), "salle C103")
 c19.addSchedule(s7)
 //04/10/17
 var s8 = new Schedule(new Date("2017-10-04T09:00:00"), new Date("2017-10-04T12:00:00"), "Amphi Marie Curie")
