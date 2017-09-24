@@ -37,13 +37,14 @@ var c16 = new Course("Introduction to statistical learning", [" N. VAYATIS"], []
 var c17 = new Course("Unsupervised learning: from big data to low-dimensional representations", [" R. VIDAL"], [])
 var c18 = new Course("Discrete Inference and Learning", [" N.PARAGIOS", " Y.TARABALKA", " K.ALAHARI"], [])
 var c19 = new Course("Lecture Group: foundations and theory of mathematics for learning & vision", [" V.Perchet"], [])
+var c20 = new Course("Advanced learning for text and graph data", [" M.VAZIRGIANNIS"], [])
 
-var all_courses = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19]
+var all_courses = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20]
 
 
 // var s! = new Schedule(new Date("2017-10-06T!!:!!:00"), new Date("2017-10-06T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
-//S1
+//S1 (40)
 // 02/10/17
 var s1 = new Schedule(new Date("2017-10-02T11:00:00"), new Date("2017-10-02T13:00:00"), "Salle Condorcet")
 c15.addSchedule(s1)
@@ -80,7 +81,7 @@ c17.addSchedule(s14)
 var s15 = new Schedule(new Date("2017-10-06T14:00:00"), new Date("2017-10-06T17:00:00"), "Salle C103")
 c8.addSchedule(s15)
 
-//S2
+//S2 (41)
 //09/10/17
 var s16 = new Schedule(new Date("2017-10-09T10:15:00"), new Date("2017-10-09T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s16)
@@ -111,7 +112,7 @@ c10.addSchedule(s27)
 // 12/10/17
 var s28 = new Schedule(new Date("2017-10-12T09:00:00"), new Date("2017-10-12T12:15:00"), "Telecom")
 c3.addSchedule(s28)
-var s29 = new Schedule(new Date("2017-10-12T13:30:00"), new Date("2017-10-12T!18:15:00"), "Salle C103")
+var s29 = new Schedule(new Date("2017-10-12T13:30:00"), new Date("2017-10-12T18:15:00"), "Salle C103")
 c6.addSchedule(s29)
 // 13/10/17
 var s30 = new Schedule(new Date("2017-10-13T09:00:00"), new Date("2017-10-13T12:00:00"), "Salle C315")
@@ -119,7 +120,7 @@ c17.addSchedule(s30)
 var s31 = new Schedule(new Date("2017-10-13T14:00:00"), new Date("2017-10-13T17:00:00"), "Salle C103")
 c8.addSchedule(s31)
 
-//S3
+//S3 (42)
 // 16/10/17
 var s32 = new Schedule(new Date("2017-10-16T10:15:00"), new Date("2017-10-16T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s32)
@@ -150,7 +151,7 @@ c10.addSchedule(s43)
 // 19/10/17
 var s44 = new Schedule(new Date("2017-10-19T09:00:00"), new Date("2017-10-19T12:15:00"), "Telecom")
 c3.addSchedule(s44)
-var s45 = new Schedule(new Date("2017-10-19T13:30:00"), new Date("2017-10-1918:45:00"), "Jussieu")
+var s45 = new Schedule(new Date("2017-10-19T13:30:00"), new Date("2017-10-19T18:45:00"), "Jussieu")
 c9.addSchedule(s45)
 var s46 = new Schedule(new Date("2017-10-19T13:30:00"), new Date("2017-10-19T18:15:00"), "Salle C103")
 c6.addSchedule(s46)
@@ -162,7 +163,7 @@ c13.addSchedule(s48)
 var s49 = new Schedule(new Date("2017-10-20T14:00:00"), new Date("2017-10-20T17:00:00"), "Salle C103")
 c8.addSchedule(s49)
 
-//S4
+//S4 (43)
 // var s! = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
 // 23/10/17
@@ -197,13 +198,13 @@ c10.addSchedule(s62)
 // 26/10/17
 var s63 = new Schedule(new Date("2017-10-26T09:00:00"), new Date("2017-10-26T12:15:00"), "Telecom")
 c3.addSchedule(s63)
-var s64 = new Schedule(new Date("2017-10-26T13:30:00"), new Date("2017-10-2618:45:00"), "Jussieu")
+var s64 = new Schedule(new Date("2017-10-26T13:30:00"), new Date("2017-10-26T18:45:00"), "Jussieu")
 c9.addSchedule(s64)
 // 27/10/17
 var s65 = new Schedule(new Date("2017-10-27T14:00:00"), new Date("2017-10-27T17:00:00"), "Salle C103")
 c8.addSchedule(s65)
 
-//S5
+//S5 (44)
 // var s! = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
 // 30/10/17
@@ -227,64 +228,109 @@ c5.addSchedule(s67)
 // 02/11/17
 var s69 = new Schedule(new Date("2017-11-02T09:00:00"), new Date("2017-11-02T12:15:00"), "Telecom")
 c3.addSchedule(s69)
-var s70 = new Schedule(new Date("2017-11-02T13:30:00"), new Date("2017-11-0218:45:00"), "Jussieu")
+var s70 = new Schedule(new Date("2017-11-02T13:30:00"), new Date("2017-11-02T18:45:00"), "Jussieu")
 c9.addSchedule(s70)
 // 03/11/17
 var s71 = new Schedule(new Date("2017-11-03T14:00:00"), new Date("2017-11-03T17:00:00"), "Salle C103")
 c8.addSchedule(s71)
 
-//S6
+//S6 (45)
+// var s! = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
+// c!.addSchedule(s!)
 // 06/11/17
-// var s72 = new Schedule(new Date("2017-11-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s72)
-// var s73 = new Schedule(new Date("2017-11-23T10:15:00"), new Date("2017-10-23T12:45:00"), "ENS Ulm Salle Henri Cartan")
-// c14.addSchedule(s73)
-// var s74 = new Schedule(new Date("2017-11-23T11:00:00"), new Date("2017-10-23T13:00:00"), "Salle Condorcet")
-// c15.addSchedule(s74)
-// var s75 = new Schedule(new Date("2017-11-23T13:30:00"), new Date("2017-10-23T16:30:00"), "ENS Ulm Amphi Jean Jaures")
-// c11.addSchedule(s75)
-// var s76 = new Schedule(new Date("2017-11-23T13:45:00"), new Date("2017-10-23T16:45:00"), "CentraleSupelec")
-// c18.addSchedule(s76)
-// // 07//11/17
-// var s77 = new Schedule(new Date("2017-11-31T08:45:00"), new Date("2017-10-31T10:45:00"), "Salle Condorcet")
-// c16.addSchedule(s77)
-// var s78 = new Schedule(new Date("2017-11-31T11:00:00"), new Date("2017-10-31T13:00:00"), "Salle C109")
-// c1.addSchedule(s78)
-// var s79 = new Schedule(new Date("2017-11-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s79)
-// var s80 = new Schedule(new Date("2017-11-31T11:00:00"), new Date("2017-10-31T13:00:00"), "Salle Condorcet")
-// c13.addSchedule(s80)
-// var s81 = new Schedule(new Date("2017-11-31T12:45:00"), new Date("2017-10-31T15:45:00"), "Telecom C48")
-// c7.addSchedule(s81)
-// var s82 = new Schedule(new Date("2017-11-31T16:15:00"), new Date("2017-10-31T19:15:00"), "ENS Ulm Immeuble Rataud Amphi Galois")
-// c5.addSchedule(s82)
-// var s83 = new Schedule(new Date("2017-11-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s83)
-// // 08/11/17
-// var s84 = new Schedule(new Date("2017-10-25T09:00:00"), new Date("2017-10-25T12:00:00"), "Amphi Marie Curie")
-// c12.addSchedule(s84)
-// var s85 = new Schedule(new Date("2017-10-25T13:30:00"), new Date("2017-10-25T16:30:00"), "Salle C103")
-// c4.addSchedule(s85)
-// var s86 = new Schedule(new Date("2017-10-25T14:00:00"), new Date("2017-10-25T18:00:00"), "Salle Condorcet")
-// c10.addSchedule(s86)
-// // 09/11/17
-// var s87 = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s87)
-// var s88 = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s88)
-// var s89 = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s89)
-// var s90 = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
-// c!.addSchedule(s90)
-// // 10/11/17
-// var s91 = new Schedule(new Date("2017-10-20T09:00:00"), new Date("2017-10-20T12:00:00"), "Salle C315")
-// c17.addSchedule(s91)
-// var s92 = new Schedule(new Date("2017-10-20T11:00:00"), new Date("2017-10-20T13:00:00"), "Salle Condorcet")
-// c13.addSchedule(s92)
-// var s93 = new Schedule(new Date("2017-10-20T14:00:00"), new Date("2017-10-20T17:00:00"), "Salle C103")
-// c8.addSchedule(s93)
+var s72 = new Schedule(new Date("2017-11-06T09:00:00"), new Date("2017-11-06T13:00:00"), "Amphi Marie Curie")
+c20.addSchedule(s72)
+var s73 = new Schedule(new Date("2017-11-06T10:15:00"), new Date("2017-11-06T12:45:00"), "ENS Ulm Salle Henri Cartan")
+c14.addSchedule(s73)
+var s74 = new Schedule(new Date("2017-11-06T11:00:00"), new Date("2017-11-06T13:00:00"), "Salle Condorcet")
+c15.addSchedule(s74)
+var s75 = new Schedule(new Date("2017-11-06T13:30:00"), new Date("2017-10-06T16:30:00"), "ENS Ulm Amphi Dussane")
+c11.addSchedule(s75)
+var s76 = new Schedule(new Date("2017-11-06T13:45:00"), new Date("2017-11-06T16:45:00"), "CentraleSupelec")
+c18.addSchedule(s76)
+// 07//11/17
+var s77 = new Schedule(new Date("2017-11-07T08:45:00"), new Date("2017-11-07T10:45:00"), "Salle Condorcet")
+c16.addSchedule(s77)
+var s78 = new Schedule(new Date("2017-11-07T11:00:00"), new Date("2017-11-07T13:00:00"), "Salle C103")
+c1.addSchedule(s78)
+var s79 = new Schedule(new Date("2017-11-07T11:00:00"), new Date("2017-11-07T15:00:00"), "Amphi Marie Curie")
+c20.addSchedule(s79)
+var s81 = new Schedule(new Date("2017-11-07T12:45:00"), new Date("2017-11-07T15:45:00"), "Telecom Amphi Grenat")
+c7.addSchedule(s81)
+var s82 = new Schedule(new Date("2017-11-07T16:15:00"), new Date("2017-11-07T19:15:00"), "ENS Ulm Immeuble Rataud Amphi Galois")
+c5.addSchedule(s82)
+var s83 = new Schedule(new Date("2017-11-07T16:00:00"), new Date("2017-11-07T18:00:00"), "Salle C103")
+c19.addSchedule(s83)
+// 08/11/17
+var s84 = new Schedule(new Date("2017-11-08T09:00:00"), new Date("2017-11-08T12:00:00"), "Amphi Marie Curie")
+c12.addSchedule(s84)
+var s85 = new Schedule(new Date("2017-11-08T13:30:00"), new Date("2017-11-08T16:30:00"), "Salle C103")
+c4.addSchedule(s85)
+var s86 = new Schedule(new Date("2017-11-08T13:30:00"), new Date("2017-11-08T17:00:00"), "Salle C102")
+c2.addSchedule(s86)
+// 09/11/17
+var s87 = new Schedule(new Date("2017-11-09T09:00:00"), new Date("2017-11-09T12:15:00"), "Telecom")
+c3.addSchedule(s87)
+var s88 = new Schedule(new Date("2017-11-09T11:00:00"), new Date("2017-11-09T13:00:00"), "Salle Condorcet")
+c13.addSchedule(s88)
+var s89 = new Schedule(new Date("2017-11-09T13:30:00"), new Date("2017-11-09T18:45:00"), "Jussieu")
+c9.addSchedule(s89)
+var s90 = new Schedule(new Date("2017-11-09T13:30:00"), new Date("2017-11-09T18:15:00"), "Salle C109")
+c6.addSchedule(s90)
+// 10/11/17
+var s92 = new Schedule(new Date("2017-11-10T09:00:00"), new Date("2017-11-10T13:00:00"), "Salle Condorcet")
+c10.addSchedule(s92)
+var s91 = new Schedule(new Date("2017-11-10T09:00:00"), new Date("2017-11-10T12:00:00"), "Salle C315")
+c17.addSchedule(s91)
+var s93 = new Schedule(new Date("2017-11-10T14:00:00"), new Date("2017-11-10T17:00:00"), "Salle C103")
+c8.addSchedule(s93)
 
-
+//S7(46)
+// var s! = new Schedule(new Date("2017-10-!!T!!:!!:00"), new Date("2017-10-!!T!!:!!:00"), "Salle Condorcet")
+// c!.addSchedule(s!)
+// 13/11/17
+var s95 = new Schedule(new Date("2017-11-13T10:15:00"), new Date("2017-11-13T12:45:00"), "ENS Ulm Salle Henri Cartan")
+c14.addSchedule(s95)
+var s96 = new Schedule(new Date("2017-11-13T11:00:00"), new Date("2017-11-13T13:00:00"), "Salle Condorcet")
+c15.addSchedule(s96)
+var s97 = new Schedule(new Date("2017-11-13T13:30:00"), new Date("2017-10-13T16:30:00"), "ENS Ulm Salle Actes")
+c11.addSchedule(s97)
+var s94 = new Schedule(new Date("2017-11-13T14:00:00"), new Date("2017-11-13T18:00:00"), "Salle Condorcet")
+c20.addSchedule(s94)
+// 14//11/17
+var s98 = new Schedule(new Date("2017-11-14T08:45:00"), new Date("2017-11-14T10:45:00"), "Salle Condorcet")
+c16.addSchedule(s98)
+var s99 = new Schedule(new Date("2017-11-14T11:00:00"), new Date("2017-11-14T13:00:00"), "Salle C103")
+c1.addSchedule(s99)
+var s100 = new Schedule(new Date("2017-11-14T11:00:00"), new Date("2017-11-14T15:00:00"), "Salle Condorcet")
+c20.addSchedule(s100)
+var s101 = new Schedule(new Date("2017-11-14T12:45:00"), new Date("2017-11-14T15:45:00"), "Telecom Salle C49")
+c7.addSchedule(s101)
+var s102 = new Schedule(new Date("2017-11-14T16:15:00"), new Date("2017-11-14T19:15:00"), "ENS Ulm Immeuble Rataud Amphi Galois")
+c5.addSchedule(s102)
+var s103 = new Schedule(new Date("2017-11-14T16:00:00"), new Date("2017-11-14T18:00:00"), "Salle C103")
+c19.addSchedule(s103)
+// 15/11/17
+var s104 = new Schedule(new Date("2017-11-15T09:00:00"), new Date("2017-11-15T12:00:00"), "Amphi Tocqueville")
+c12.addSchedule(s104)
+var s105 = new Schedule(new Date("2017-11-15T13:30:00"), new Date("2017-11-15T16:30:00"), "Salle C109")
+c4.addSchedule(s105)
+var s106 = new Schedule(new Date("2017-11-15T13:30:00"), new Date("2017-11-15T17:00:00"), "Salle C102")
+c2.addSchedule(s106)
+// 16/11/17
+var s107 = new Schedule(new Date("2017-11-16T09:00:00"), new Date("2017-11-16T12:15:00"), "Telecom")
+c3.addSchedule(s107)
+var s108 = new Schedule(new Date("2017-11-16T11:00:00"), new Date("2017-11-16T13:00:00"), "Salle Condorcet")
+c13.addSchedule(s108)
+var s109 = new Schedule(new Date("2017-11-16T13:30:00"), new Date("2017-11-16T18:45:00"), "Jussieu")
+c9.addSchedule(s109)
+var s110 = new Schedule(new Date("2017-11-16T13:30:00"), new Date("2017-11-16T18:15:00"), "Salle C103")
+c6.addSchedule(s110)
+// 17/11/17
+var s111 = new Schedule(new Date("2017-11-17T09:00:00"), new Date("2017-11-17T13:00:00"), "Salle Condorcet")
+c10.addSchedule(s111)
+var s112= new Schedule(new Date("2017-11-17T14:00:00"), new Date("2017-11-17T17:00:00"), "Salle C103")
+c8.addSchedule(s112)
 
 
 //#############################################################################
@@ -460,6 +506,7 @@ function courseToIcs(course) {
   var courseExport = ""
   for (i = 0; i < course.scheduleList.length; i++) {
     var schedule = course.scheduleList[i]
+    // console.log(course.scheduleList[i])
     var scheduleExport = "\nBEGIN:VEVENT\n"
     scheduleExport += "SUMMARY:[MVA] " + course.name + "\n"
     scheduleExport += "UID:" + course.name + schedule.beginTime + "\n"
@@ -473,20 +520,29 @@ function courseToIcs(course) {
   return courseExport
 }
 
-function download(courses, name, type) {
+function download(courses, name, buttonName, type) {
   var CalendarToDownload = initCalendarExport
   for (k = 0; k < courses.length; k++) {
+    // console.log(courses[k])
     CalendarToDownload += courseToIcs(courses[k])
   }
-  var a = document.getElementById("a");
+  var a = document.getElementById(buttonName);
+  console.log(buttonName)
+  console.log(a)
   var file = new Blob([CalendarToDownload], {type: type});
   a.href = URL.createObjectURL(file);
   a.download = name;
 }
 
+$("#generateFullIcs")
+  .on('click', function (){
+    console.log("Ics generating...")
+    download(all_courses, 'full_mva_calendar.ics', "aFull", 'text/plain')
+})
+
 
 $("#generateIcs")
   .on('click', function (){
     console.log("Ics generating...")
-    download(selectCourses, 'myfilenametest.ics', 'text/plain')
+    download(selectCourses, 'mva_calendar.ics', "a", 'text/plain')
 })
