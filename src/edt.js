@@ -3,6 +3,8 @@ class Course {
     this.name = name;
     this.prof = prof;
     this.scheduleList = scheduleList;
+    this.locationList = [];
+    this.locationName = [];
   }
 
   addSchedule(schedule) {
@@ -16,6 +18,18 @@ class Schedule {
     this.endTime = endTime;
     this.location = location;
   }
+}
+
+//cleanArray removes all duplicated elements
+function cleanArray(array) {
+  var i, j, len = array.length, out = [], obj = {};
+  for (i = 0; i < len; i++) {
+    obj[array[i]] = 0;
+  }
+  for (j in obj) {
+    out.push(j);
+  }
+  return out;
 }
 
 var c1 = new Course("Topological data analysis for imaging and machine learning", [" J. TIERNY", " F. CHAZAL"], [])
@@ -527,6 +541,19 @@ var s187 = new Schedule(new Date("2017-12-21T09:00:00"), new Date("2017-12-21T12
 c3.addSchedule(s187)
 
 
+for (var i = 0; i< all_courses.length; i++) {
+  for (var j = 0; j < all_courses[i].scheduleList.length; j++) {
+    all_courses[i].locationList.push(all_courses[i].scheduleList[j].location)
+  }
+  all_courses[i].locationList = cleanArray(all_courses[i].locationList)
+  all_courses[i].locationName += " ("
+  // console.log(all_courses[i].locationList)
+  for (var j=0; j< (all_courses[i].locationList.length)-1; j++) {
+    all_courses[i].locationName += all_courses[i].locationList[j] + ", "
+  }
+  all_courses[i].locationName +=  all_courses[i].locationList[all_courses[i].locationList.length-1] + ")"
+}
+
 
 //#############################################################################
 // DISPLAY COURSES
@@ -538,7 +565,9 @@ function displayCoursesList() {
     line += "<div id=\"checkbox_" + i +"\" class=\"ui checkbox\">"
     // line += "<input type=\"checkbox\" id=\"" + i + "\" disabled=\"disabled\">"
     line += "<input type=\"checkbox\" id=\"" + i + "\">"
-    line += "<label>" + all_courses[i].name + "</label>"
+    line += "<label>" + all_courses[i].name
+    line += "<I>" + all_courses[i].locationName + "</I>"
+    line += "</label>"
     line += "</div>"
     line += "</div>"
     $(line).appendTo($("#coursesList"));
@@ -635,7 +664,9 @@ function interactCheckbox() {
           var index = all_courses.indexOf(forbiddenCourses[i])
           $("#checkbox_" + index).empty()
           var line = "<input type=\"checkbox\" id=\"" + index + "\">"
-          line += "<label>" + forbiddenCourses[i].name + "</label>"
+          line += "<label>" + forbiddenCourses[i].name
+          line += "<I>" + forbiddenCourses[i].locationName + "</I>"
+          line += "</label>"
           line += "</div>"
           $(line).appendTo($("#checkbox_" + index));
         }
@@ -648,7 +679,9 @@ function interactCheckbox() {
               forbiddenCourses.push(overlapCourses[k])
               $("#checkbox_" + all_courses.indexOf(overlapCourses[k])).empty()
               var line = "<input type=\"checkbox\" id=\"" + i + "\" disabled=\"disabled\">"
-              line += "<label>" + overlapCourses[k].name + "</label>"
+              line += "<label>" + overlapCourses[k].name
+              line += "<I>" + overlapCourses[k].locationName + "</I>"
+              line += "</label>"
               line += "</div>"
               $(line).appendTo($("#checkbox_" + all_courses.indexOf(overlapCourses[k])));
             }
