@@ -32,6 +32,17 @@ function cleanArray(array) {
   return out;
 }
 
+function cleanCoursesName(array) {
+  var i, j, len = array.length, out = [], obj = {};
+  for (i = 0; i < len; i++) {
+    obj[array[i].name] = array[i];
+  }
+  for (j in obj) {
+    out.push(obj[j]);
+  }
+  return out;
+}
+
 var c1 = new Course("Topological data analysis for imaging and machine learning", [" J. TIERNY", " F. CHAZAL"], [])
 var c2 = new Course("Introduction to medical image analysis", [" H. DELINGETTE", " X. PENNEC"], [])
 var c3 = new Course("Introduction à l'imagerie numérique", [" J. DELON"," Y. GOUSSEAU"], [])
@@ -60,7 +71,7 @@ var all_courses = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, 
 // c!.addSchedule(s!)
 //S1 (40)
 // 02/10/17
-var s1 = new Schedule(new Date("2017-10-02T11:00:00"), new Date("2017-10-02T13:00:00"), "Salle Condorcet")
+var s1 = new Schedule(new Date("2017-10-02T10:30:00"), new Date("2017-10-02T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s1)
 var s2 = new Schedule(new Date("2017-10-02T13:30:00"), new Date("2017-10-02T16:30:00"), "ENS Ulm Amphi Dussane")
 c11.addSchedule(s2)
@@ -73,7 +84,7 @@ var s5 = new Schedule(new Date("2017-10-03T12:45:00"), new Date("2017-10-03T15:4
 c7.addSchedule(s5)
 var s6 = new Schedule(new Date("2017-10-03T16:15:00"), new Date("2017-10-03T19:15:00"), "ENS Ulm Immeuble Rataud Amphi Galois")
 c5.addSchedule(s6)
-var s7 = new Schedule(new Date("2017-10-03T16:00:00"), new Date("2017-10-03T18:00:00"), "salle C103")
+var s7 = new Schedule(new Date("2017-10-03T16:00:00"), new Date("2017-10-03T18:00:00"), "Salle C103")
 c19.addSchedule(s7)
 //04/10/17
 var s8 = new Schedule(new Date("2017-10-04T09:00:00"), new Date("2017-10-04T12:00:00"), "Amphi Marie Curie")
@@ -97,9 +108,9 @@ c8.addSchedule(s15)
 
 //S2 (41)
 //09/10/17
-var s16 = new Schedule(new Date("2017-10-09T10:15:00"), new Date("2017-10-09T12:45:00"), "ENS Ulm Salle Henri Cartan")
+var s16 = new Schedule(new Date("2017-10-09T10:00:00"), new Date("2017-10-09T12:30:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s16)
-var s17 = new Schedule(new Date("2017-10-09T11:00:00"), new Date("2017-10-09T13:00:00"), "Salle Condorcet")
+var s17 = new Schedule(new Date("2017-10-09T10:30:00"), new Date("2017-10-09T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s17)
 var s18 = new Schedule(new Date("2017-10-09T13:30:00"), new Date("2017-10-09T16:30:00"), "ENS Ulm Amphi Dussane")
 c11.addSchedule(s18)
@@ -138,7 +149,7 @@ c8.addSchedule(s31)
 // 16/10/17
 var s32 = new Schedule(new Date("2017-10-16T10:15:00"), new Date("2017-10-16T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s32)
-var s33 = new Schedule(new Date("2017-10-16T11:00:00"), new Date("2017-10-16T13:00:00"), "Salle Condorcet")
+var s33 = new Schedule(new Date("2017-10-16T10:30:00"), new Date("2017-10-16T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s33)
 var s34 = new Schedule(new Date("2017-10-16T13:30:00"), new Date("2017-10-16T16:30:00"), "ENS Ulm Amphi Dussane")
 c11.addSchedule(s34)
@@ -183,7 +194,7 @@ c8.addSchedule(s49)
 // 23/10/17
 var s50 = new Schedule(new Date("2017-10-23T10:15:00"), new Date("2017-10-23T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s50)
-var s51 = new Schedule(new Date("2017-10-23T11:00:00"), new Date("2017-10-23T13:00:00"), "Salle Condorcet")
+var s51 = new Schedule(new Date("2017-10-23T10:30:00"), new Date("2017-10-23T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s51)
 var s52 = new Schedule(new Date("2017-10-23T13:30:00"), new Date("2017-10-23T16:30:00"), "ENS Ulm Amphi Jean Jaures")
 c11.addSchedule(s52)
@@ -224,7 +235,7 @@ c8.addSchedule(s65)
 // 30/10/17
 var s61 = new Schedule(new Date("2017-10-30T09:00:00"), new Date("2017-10-30T12:00:00"), "Salle C102")
 c17.addSchedule(s61)
-var s62 = new Schedule(new Date("2017-10-30T11:00:00"), new Date("2017-10-30T13:00:00"), "Salle Condorcet")
+var s62 = new Schedule(new Date("2017-10-30T10:30:00"), new Date("2017-10-30T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s62)
 var s63 = new Schedule(new Date("2017-10-30T13:45:00"), new Date("2017-10-30T16:45:00"), "CentraleSupelec")
 c18.addSchedule(s63)
@@ -256,7 +267,7 @@ var s72 = new Schedule(new Date("2017-11-06T09:00:00"), new Date("2017-11-06T13:
 c20.addSchedule(s72)
 var s73 = new Schedule(new Date("2017-11-06T10:15:00"), new Date("2017-11-06T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s73)
-var s74 = new Schedule(new Date("2017-11-06T11:00:00"), new Date("2017-11-06T13:00:00"), "Salle Condorcet")
+var s74 = new Schedule(new Date("2017-11-06T10:30:00"), new Date("2017-11-06T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s74)
 var s75 = new Schedule(new Date("2017-11-06T13:30:00"), new Date("2017-11-06T16:30:00"), "ENS Ulm Amphi Dussane")
 c11.addSchedule(s75)
@@ -305,7 +316,7 @@ c8.addSchedule(s93)
 // 13/11/17
 var s95 = new Schedule(new Date("2017-11-13T10:15:00"), new Date("2017-11-13T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s95)
-var s96 = new Schedule(new Date("2017-11-13T11:00:00"), new Date("2017-11-13T13:00:00"), "Salle Condorcet")
+var s96 = new Schedule(new Date("2017-11-13T10:30:00"), new Date("2017-11-13T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s96)
 var s97 = new Schedule(new Date("2017-11-13T13:30:00"), new Date("2017-11-13T16:30:00"), "ENS Ulm Salle Actes")
 c11.addSchedule(s97)
@@ -352,7 +363,7 @@ c8.addSchedule(s112)
 // 20/11/17
 var s113 = new Schedule(new Date("2017-11-20T10:15:00"), new Date("2017-11-20T12:45:00"), "ENS Ulm Salle Henri Cartan")
 c14.addSchedule(s113)
-var s114 = new Schedule(new Date("2017-11-20T11:00:00"), new Date("2017-11-20T13:00:00"), "Salle Condorcet")
+var s114 = new Schedule(new Date("2017-11-20T10:30:00"), new Date("2017-11-20T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s114)
 var s115 = new Schedule(new Date("2017-11-20T13:45:00"), new Date("2017-11-20T16:45:00"), "CentraleSupelec")
 c18.addSchedule(s115)
@@ -397,8 +408,6 @@ c8.addSchedule(s131)
 // var s! = new Schedule(new Date("2017-11-!!T!!:!!:00"), new Date("2017-11-!!T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
 // 27/11/17
-var s132 = new Schedule(new Date("2017-11-27T09:00:00"), new Date("2017-11-27T13:00:00"), "Amphi Marie Curie")
-c20.addSchedule(s132)
 var s133 = new Schedule(new Date("2017-11-27T13:45:00"), new Date("2017-11-27T16:45:00"), "CentraleSupelec")
 c18.addSchedule(s133)
 // 28//11/17
@@ -442,7 +451,7 @@ c8.addSchedule(s149)
 // var s! = new Schedule(new Date("2017-12-!!T!!:!!:00"), new Date("2017-12-!!T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
 // 04/12/17
-var s150 = new Schedule(new Date("2017-12-04T11:00:00"), new Date("2017-12-04T13:00:00"), "Salle Condorcet")
+var s150 = new Schedule(new Date("2017-12-04T10:30:00"), new Date("2017-12-04T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s150)
 var s152 = new Schedule(new Date("2017-12-04T13:45:00"), new Date("2017-12-04T16:45:00"), "CentraleSupelec")
 c18.addSchedule(s152)
@@ -479,7 +488,7 @@ c10.addSchedule(s163)
 // var s! = new Schedule(new Date("2017-12-!!T!!:!!:00"), new Date("2017-12-!!T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
 // 11/12/17
-var s164 = new Schedule(new Date("2017-12-11T11:00:00"), new Date("2017-12-11T13:00:00"), "Salle Condorcet")
+var s164 = new Schedule(new Date("2017-12-11T10:30:00"), new Date("2017-12-11T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s164)
 var s166 = new Schedule(new Date("2017-12-11T14:00:00"), new Date("2017-12-11T18:00:00"), "Salle Condorcet")
 c20.addSchedule(s166)
@@ -514,7 +523,7 @@ c10.addSchedule(s176)
 // var s! = new Schedule(new Date("2017-12-!!T!!:!!:00"), new Date("2017-12-!!T!!:!!:00"), "Salle Condorcet")
 // c!.addSchedule(s!)
 // 18/12/17
-var s177 = new Schedule(new Date("2017-12-18T11:00:00"), new Date("2017-12-18T13:00:00"), "Salle Condorcet")
+var s177 = new Schedule(new Date("2017-12-18T10:30:00"), new Date("2017-12-18T12:30:00"), "Salle Condorcet")
 c15.addSchedule(s177)
 var s178 = new Schedule(new Date("2017-12-18T14:00:00"), new Date("2017-12-18T17:00:00"), "Salle C103")
 c20.addSchedule(s178)
@@ -629,7 +638,7 @@ function createOverlapDict(dayDict) {
         scheduleB = courseB.scheduleList[schedulesRest[j][1]]
         if (!notOverlap(scheduleA, scheduleB))
         {
-          console.log("Overlapping!")
+          // console.log("Overlapping!")
           overlap.push([courseA, courseB])
           addToDict(overlapDict, courseA.name, courseB)
           addToDict(overlapDict, courseB.name, courseA)
@@ -660,13 +669,15 @@ function interactCheckbox() {
       }
       ,
       onChange: function() {
-        for (i=0; i<forbiddenCourses.length; i++) {
-          var index = all_courses.indexOf(forbiddenCourses[i])
+        displayCoursesList()
+        console.log("select courses: ",selectCourses)
+        for (i=0; i<selectCourses.length; i++) {
+          var index = all_courses.indexOf(selectCourses[i])
           $("#checkbox_" + index).empty()
-          var line = "<input type=\"checkbox\" id=\"" + index + "\">"
-          line += "<label>" + forbiddenCourses[i].name
-          line += "<I>" + forbiddenCourses[i].locationName + "</I>"
-          line += "</label>"
+          var line = "<input type=\"checkbox\" id=\"" + index + "\" checked=true>"
+          line += "<label>  <font color=\"green\">" + selectCourses[i].name
+          line += "<I>" + selectCourses[i].locationName + "</I>"
+          line += "</font></label>"
           line += "</div>"
           $(line).appendTo($("#checkbox_" + index));
         }
@@ -675,15 +686,19 @@ function interactCheckbox() {
           if (overlapDict[selectCourses[i].name] != undefined) {
             overlapCourses = overlapDict[selectCourses[i].name]
             for (k=0; k<overlapCourses.length; k++) {
-              console.log()
-              forbiddenCourses.push(overlapCourses[k])
-              $("#checkbox_" + all_courses.indexOf(overlapCourses[k])).empty()
-              var line = "<input type=\"checkbox\" id=\"" + i + "\" disabled=\"disabled\">"
-              line += "<label>" + overlapCourses[k].name
-              line += "<I>" + overlapCourses[k].locationName + "</I>"
-              line += "</label>"
-              line += "</div>"
-              $(line).appendTo($("#checkbox_" + all_courses.indexOf(overlapCourses[k])));
+              var index2 = selectCourses.indexOf(overlapCourses[k])
+              if (index2 == -1) {
+                forbiddenCourses.push(overlapCourses[k])
+                forbiddenCourses = cleanCoursesName(forbiddenCourses)
+                var index = all_courses.indexOf(overlapCourses[k])
+                $("#checkbox_" + all_courses.indexOf(overlapCourses[k])).empty()
+                var line = "<input type=\"checkbox\" id=\"" + index + "\">"
+                line += "<label>  <font color=\"red\">" + overlapCourses[k].name
+                line += "<I>" + overlapCourses[k].locationName + "</I>"
+                line += "</font></label>"
+                line += "</div>"
+                $(line).appendTo($("#checkbox_" + all_courses.indexOf(overlapCourses[k])));
+              }
             }
           }
         }
