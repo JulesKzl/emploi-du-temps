@@ -771,6 +771,7 @@ function download(courses, name, buttonName, type) {
     console.log(courses[k])
     CalendarToDownload += courseToIcs(courses[k])
   }
+  CalendarToDownload += "END:VCALENDAR"
   var a = document.getElementById(buttonName);
   var file = new Blob([CalendarToDownload], {type: type});
   a.href = URL.createObjectURL(file);
