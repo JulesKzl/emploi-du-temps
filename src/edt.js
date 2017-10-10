@@ -160,6 +160,8 @@ var s36 = new Schedule(new Date("2017-10-17T08:00:00"), new Date("2017-10-17T10:
 c16.addSchedule(s36)
 var s37 = new Schedule(new Date("2017-10-17T11:00:00"), new Date("2017-10-17T13:00:00"), "Salle C109")
 c1.addSchedule(s37)
+var s200 = new Schedule(new Date("2017-10-17T12:45:00"), new Date("2017-10-17T15:45:00"), "Telecom Salle C49")
+c7.addSchedule(s200)
 var s38 = new Schedule(new Date("2017-10-17T16:15:00"), new Date("2017-10-17T19:15:00"), "ENS Ulm Immeuble Rataud Amphi Galois")
 c5.addSchedule(s38)
 var s39 = new Schedule(new Date("2017-10-17T16:00:00"), new Date("2017-10-17T18:00:00"), "Salle C103")
